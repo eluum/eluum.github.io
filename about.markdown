@@ -5,3 +5,5 @@ permalink: /about/
 ---
 
 A small blog about mathematics and programming, and a few other things.
+
+$$e^{i\pi}=-1$$
