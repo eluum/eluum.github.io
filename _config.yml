@@ -28,6 +28,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # Build settings
 remote_theme: jekyll/minima
 minima:
+  skin: dark
   social_links:
     - { platform: github,  user_url: "https://github.com/eluum" }
 plugins:
