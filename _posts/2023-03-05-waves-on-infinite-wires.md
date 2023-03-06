@@ -32,7 +32,7 @@ $$\oint f(x,y) dx = 2\pi iR$$
 
 We can take our closed path to be a half circle, with the flat section traveling along the real axis from $-l$ to $l$, and the circular arc in the negative imaginary direction connecting the two ends.
 
-$$\oint f(x,y) dx =\int_{\text{arc}}f(x,y)dx + \int^{l}_{-l}S(x,y)dx = \pi S(-iy,t)$$
+$$\oint f(x,y) dx =\int_{\text{arc}}f(x,y)dx + \int^{l}_{-l}f(x,y)dx = \pi S(-iy,t)$$
 
 Using the **ML inequality**, we can see what condition on $S$ is needed for $\lim_{l\to\infty} \int_{\text{arc}}f(x,y)dx = 0$. 
 Along the semicircular arc, $x = le^{i\theta}$ for $-\pi\leq\theta\leq 0$, so
