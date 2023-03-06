@@ -55,9 +55,7 @@ $$s(t,y)= \int_{-\infty}^{\infty} \frac{S(x,t)}{x^2+y^2}dx=\pi S(-iy, t)$$
 
 Lets consider a sinusoidal signal with angular frequency $\omega$ that travels down our wire at speed $c$, with real positive amplitude $A(x): \ \mathbb{C}\to\mathbb{R}$.
 
-
 $$S(x, t) = A(x)\sin(\omega (t - x/c) + \varphi)$$
-
 
 In order to simplify some of the work, note that
 
@@ -71,7 +69,7 @@ then
 
 $$|S'(le^{i\theta},t)|=|A(le^{i\theta})e^{-ile^{i\theta}}e^{i(\omega t+\varphi)}|=|A(le^{i\theta})||e^{-il\cos(\theta) + l\sin(\theta)}|=A(le^{i\theta})e^{l\sin(\theta)}$$
 
-For $ -\pi \leq \theta \leq 0$, $\sin(\theta)\leq0$, so $|S'(le^{i\theta},t)| \leq \sup_{-\pi \leq \theta \leq 0} A(le^{i\theta})$. If we then require that $A(x)$ is bounded above by some finite value $A_0$, we have that
+For $-\pi \leq \theta \leq 0$, $\sin(\theta)\leq 0$, so $|S'(le^{i\theta},t)| \leq \sup_{-\pi \leq \theta \leq 0} A(le^{i\theta})$. If we then require that $A(x)$ is bounded above by some finite value $A_0$, we have that
 
 $$\lim_{l\to\infty} \frac{\sup_{0\leq\theta\leq\pi}|S(le^{i\theta},t)|}{l} \leq \lim_{l\to\infty} \frac{A_0}{l} = 0$$
 
