@@ -4,7 +4,7 @@ title:  "Waves on Infinite Wires"
 categories: math physics integration
 ---
 
-## General Solution
+## General Problem
 
 Say you have some field which obeys the inverse square law, and an infinitely long wire. Let the time varying potential in the wire be $S(x, t)$, Where $x$ is distance along the wire and $t$ is the time. Say you are measuring the resulting field at a point whose orthogonal distance to the wire is $y$, and $x$ position is 0. Lets define $f(x,y)$ to be the contribution of a point along the wire at distance $x$ from the origin to the field measured at our point $(0, y)$. We will make the assumption that the propagation speed of our field is sufficiently high that any time delay can be ignored. Applying the inverse square law, 
 
@@ -51,9 +51,9 @@ If this condition is met, then we have our desired solution,
 
 $$s(t,y)= \int_{-\infty}^{\infty} \frac{S(x,t)}{x^2+y^2}dx=\pi S(-iy, t)$$
 
-## Sinusoidal Signals
+## Sinusoidal Potential
 
-Lets consider a sinusoidal signal with angular frequency $\omega$ that travels down our wire at speed $c$, with real positive amplitude $A(x): \ \mathbb{C}\to\mathbb{R}$.
+Lets consider a sinusoidal potential with angular frequency $\omega$ that travels down our wire at speed $c$, with real positive amplitude $A(x): \ \mathbb{C}\to\mathbb{R}$.
 
 $$S(x, t) = A(x)\sin(\omega (t - x/c) + \varphi)$$
 
@@ -80,7 +80,7 @@ $$s(t,y)= \Im\left(\int_{-\infty}^{\infty} \frac{S'(x,t)}{x^2+y^2}dx\right)=\Im(
 
 so our solution is then
 
-$$s(t,y) = \Im\left(A(-iy)ie^{i(\omega (t + iy/c) + \varphi)}\right) = A(-iy)e^{-\omega y /c}\Im\left(e^{i(\omega t + \varphi)}\right)=$$
+$$s(t,y) = \Im\left(A(-iy)e^{i(\omega (t + iy/c) + \varphi)}\right) = A(-iy)e^{-\omega y /c}\Im\left(e^{i(\omega t + \varphi)}\right)$$
 
 $$s(t,y) =A(-iy)e^{-\omega y /c}\sin(\omega t + \varphi)$$
 
@@ -88,8 +88,14 @@ For example, let the potential amplitude be exponentially decaying from some sou
 
 $$A(z) = A_0e^{-\alpha|x-d|}= A_0e^{-\alpha\sqrt{(x-d)^*(x-d)}}$$
 
-so $A(-iy) = A_0e^{-\alpha\sqrt{y^2+d^2}}$ and $s(t,y) = A_0e^{-\left(\omega y / c +\alpha\sqrt{y^2+d^2}\right)}\sin(\omega t + \varphi)$.
+so 
 
-Interestingly, the phase of the signal observed at the measurement point is the same as the closest point on the wire, but the amplitude depends on the frequency of the wave as well as the traveling speed and distance from the wire.
+$$A(-iy) = A_0e^{-\alpha\sqrt{y^2+d^2}}$$ 
+
+and 
+
+$$s(t,y) = A_0e^{-\left(\omega y / c +\alpha\sqrt{y^2+d^2}\right)}\sin(\omega t + \varphi)$$
+
+Interestingly, the phase of the signal observed at the measurement point is the same as the closest point on the wire, but the amplitude depends on the frequency of the wave as well as the traveling speed, distance from the wire and potential source.
 
 
