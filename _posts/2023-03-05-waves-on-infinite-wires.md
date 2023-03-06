@@ -14,12 +14,7 @@ Adding up the contributions of each point along the wire yields the signal at th
 
 $$s(y, t) = \int_{-\infty}^{\infty} f(x,y)dx=\int_{-\infty}^{\infty} \frac{S(x,t)}{x^2 + y^2}dx$$
 
-These types of integrals can generally be solved by the residue theorem of complex analysis. The residue of $f(z)$ at a singularity $z=a$ is the value $R$ such that $f(z) - \frac{R}{z-a}$ has an analytic anti-derivative at $z=a$. Clearly our function only has two singularities, 
-
-$$x = iy$$
-$$x = -iy$$
-
-Using an algebra trick, we can separate the integrand into two term such that each only has a single singularity. 
+These types of integrals can generally be solved by the residue theorem of complex analysis. The residue of $f(z)$ at a singularity $z=a$ is the value $R$ such that $f(z) - \frac{R}{z-a}$ has an analytic anti-derivative at $z=a$. Clearly our function only has two singularities, $x = iy$ and $x = -iy$. Using an algebra trick, we can separate the integrand into two term such that each only has a single singularity. 
 
 $$\frac{S(x,t)}{x^2+y^2} = S(x,t)\left(\frac{1}{x^2 + y^2}\right) = S(x,t)\left(\frac{1}{2i(x-iy)} - \frac{1}{2i(x+iy)}\right) = \frac{S(x,t)}{2i(x-iy)} - \frac{S(x,t)}{2i(x+iy)}$$
 
