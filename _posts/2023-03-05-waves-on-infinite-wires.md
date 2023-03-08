@@ -26,7 +26,7 @@ so
 
 $$R = \frac{S(-iy,t)}{2i}$$
 
-By the **residue theorem**, any closed path integral that incloses a single singularity with residual $R$ is
+By the **residue theorem**, any closed path integral that encloses a single singularity with residual $R$ is
 
 $$\oint f(x,y) dx = 2\pi iR$$
 
