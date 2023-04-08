@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Waves on Infinite Wires"
 categories: math physics integration
 ---
