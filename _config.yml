@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -104,11 +104,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Eluum"
   avatar           : "/assets/images/waves_small.jpeg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            : 
+  bio              : "I like math and programming :)"
+  location         : 
+  email            : "eluum-contact@proton.me"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
