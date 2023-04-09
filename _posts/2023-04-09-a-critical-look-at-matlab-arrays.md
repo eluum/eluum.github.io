@@ -199,7 +199,7 @@ b =
 
     'hello'
 ```
-Indexing multiple items with {} returns one of matlabs lesser known (and confusing) types, the [comma separated list](https://www.mathworks.com/help/matlab/matlab_prog/comma-separated-lists.html). This data type cannot be stored in a variable, but can be directly inserted into an expression anywhere that would normally accept items separated by commas. For instance, comma separated lists can be used to create matrices. (if cell elements are different types strange conversions may occur!)
+Indexing multiple items with {} returns one of matlabs lesser known (and most confusing) types, the [comma separated list](https://www.mathworks.com/help/matlab/matlab_prog/comma-separated-lists.html). This data type cannot be stored in a variable, but can be directly inserted into an expression anywhere that would normally accept items separated by commas. For instance, comma separated lists can be used to create matrices. (if cell elements are different types strange conversions may occur!)
 
 ```matlab
 elements = {1, 3, 5, 6, 7, 12};
