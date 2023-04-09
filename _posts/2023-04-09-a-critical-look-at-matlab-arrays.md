@@ -13,12 +13,12 @@ Matlab has two primary array types, the [matrix](https://www.mathworks.com/help/
 ### Basic Operations
 
 You can create a matrix like this,
-```MATLAB
+```octave
 numbers = [1, 2, 3, 4, 5];
 ```
 and index into it like this.
 
-```MATLAB
+```octave
 numbers(3)
 ```
 
@@ -30,12 +30,12 @@ ans =
 
 Cell arrays are created with curly braces,
 
-```MATLAB
+```octave
 items = {1, 'hello', 3, [4, 5, 6], []};
 ```
 and indexed with curly braces as well.
 
-```MATLAB
+```octave
 items{4}
 ```
 ```
@@ -54,7 +54,7 @@ For loops are the predominant (non vectorized) way to iterate over the elements 
 
 Here's and example that displays each element in a matrix. 
 
-```MATLAB
+```octave
 numbers = [1, 2, 3, 4, 5];
 for element = numbers
     disp(element);
@@ -76,7 +76,7 @@ end
 ### Looping Over Cell Arrays
 Observe what happens when we iterate over a cell array.
 
-```MATLAB
+```octave
 items = {1, 'hello', 3, [4, 5, 6], []};
 for element = items
     disp(element)
@@ -95,7 +95,7 @@ end
 ```
 Instead of 'element' being bound to each element in the collection as it is for matrices, 'element' is bound to a cell array containing a single element of 'items' at each iteration. If you want to replicate the behavior of the first loop for a cell array, you need to index 'element' with {} like so. 
 
-```MATLAB
+```octave
 items = {1, 'hello', 3, [4, 5, 6], []};
 for element = items
     disp(element{1})
@@ -117,7 +117,7 @@ Unfortunately this makes writing code that can operate on both cell arrays and m
 To understand why for loops work like this, we need to understand a couple implementation details about matlab. The first thing to grasp is that all values are matrices. A single object is a matrix with size 1 by 1. Indexing a single element of a matrix with () actually returns another matrix with a single element. This is the design that matlab chose in order to facilitate indexing sub matrices.   
 
 Creating a 3 by 3 matrix.
-```MATLAB
+```octave
 a = [1, 2, 3 ; 4, 5, 6 ; 7, 8, 9]
 ```
 ```
@@ -129,7 +129,7 @@ a =
 ```
 
 Extracting a 2 by 2 sub matrix by indexing with the range [1, 2] on both axes.
-```MATLAB
+```octave
 a(1:2, 1:2)
 ```
 ```
@@ -140,7 +140,7 @@ ans =
 ```
 In matlab, indexing a collection with () **always** returns a collection of the same type. In fact, you can index cell arrays with () as well, it returns a cell array containing the elements at the requested indices. 
 
-```MATLAB
+```octave
 items = {1, 'hello', 3, [4, 5, 6], []};
 items(2:4)
 ```
@@ -153,7 +153,7 @@ ans =
 ```
 This is the case even if you request just one element.
 
-```MATLAB
+```octave
 items(3)
 ```
 ```
@@ -169,7 +169,7 @@ For loops in matlab index collections using (), explaining our strange looking r
 
 What happens if we try to dereference multiple elements from a cell array with {}? Lets try it. 
 
-```MATLAB
+```octave
 items = {1, 'hello', 3, [4, 5, 6], []};
 items{2:4}
 ```
@@ -191,7 +191,7 @@ ans =
 This time matlab returned three distinct things, but its not immediately clear exactly what type {} is returning. If we try to store the returned value in a variable, we only get one thing.
 
 
-```MATLAB
+```octave
 b = items{2:4}
 ```
 ```
@@ -201,7 +201,7 @@ b =
 ```
 Indexing multiple items with {} returns one of matlabs lesser known (and confusing) types, the [comma separated list](https://www.mathworks.com/help/matlab/matlab_prog/comma-separated-lists.html). This data type cannot be stored in a variable, but can be directly inserted into an expression anywhere that would normally accept items separated by commas. For instance, comma separated lists can be used to create matrices. (if cell elements are different types strange conversions may occur!)
 
-```MATLAB
+```octave
 elements = {1, 3, 5, 6, 7, 12};
 mat = [elements{2:4}]
 ```
@@ -212,7 +212,7 @@ mat =
 ```
 Or, perhaps more usefully, pass arguments to functions. (Here we are adding up values by inputting a matrix and the string 'all' to specify which elements should be summed)
 
-```MATLAB
+```octave
 arguments = {[1, 2 ; 3, 4 ; 5, 6], 'all'}
 sum(arguments{:})
 ```
@@ -230,7 +230,7 @@ ans =
 ```
 Variadic functions in matlab make use of these mechanics. The special identifiers 'varargin' and 'varargout' capture the input and output to a function as cell arrays, making passing arguments up and down the call stack a breeze. For example, here is a function that produces a customized figure, but allows the caller to pass arguments to dictate the line style.
 
-```MATLAB
+```octave
 function fig = myCustomLogPlot(data, varargin)
     logData = log10(abs(data));
     fig = figure();
@@ -238,12 +238,12 @@ function fig = myCustomLogPlot(data, varargin)
     ylabel('Data (log 10)');
 end
 ```
-```MATLAB
+```octave
 myCustomLogPlot(randn(100,1));
 ```
 ![image plain linestyle](/assets/images/plainExample.png)
 
-```MATLAB
+```octave
 myCustomLogPlot(randn(100,1), 'mo-', 'LineWidth', 2);
 ```
 ![image customized linestyle](/assets/images/styledExample.png)
@@ -252,7 +252,7 @@ This examples uses the older, simpler syntax. In 2019b a new keyword block 'argu
 
 Comma separated lists can also be used to capture multiple return values from a function, in this case the index and value of the maximum points in some random data. We can index the 'points' cell array backwards to input the arguments in the correct order.
 
-```MATLAB
+```octave
 data = rand(100, 3);
 [points{1:2}] = max(data);
 figure();
@@ -270,7 +270,7 @@ ylim([-0.1, 1.1]);
 Matlab is internally consistent in the way it indexes matrices and cell arrays. Mechanically, () does the same thing to both data types, but there is one critical difference. In matlab, a single element matrix *behaves* like a value, while a single element cell array *does not*. 
 
 Arithmetic can be done directly on single element matrices,
-```MATLAB
+```octave
 a = [10]; % a single value in a matrix
 a + 2
 ```
@@ -281,7 +281,7 @@ ans =
 ```
 
 but not on a single element cell array.
-```MATLAB
+```octave
 b = {10}; % a single value in a cell array
 b + 2
 ```
