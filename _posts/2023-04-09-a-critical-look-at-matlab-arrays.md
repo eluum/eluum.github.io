@@ -4,11 +4,11 @@ categories: programming matlab
 ---
 ## Introduction
 
-Matlab is a numerical computing platform as well as programming language with a strong focus on multi-dimensional arrays and linear algebra. In this post I examine the array types in matlab and discuss their design.
+Matlab is a numerical computing platform and programming language with a strong focus on multi-dimensional arrays and linear algebra. In this post I examine the array types in matlab and discuss their design.
 
 ## Matlab's Array Types
 
-Matlab has two primary array types, the [matrix](https://www.mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html) and the [cell array](https://www.mathworks.com/help/matlab/cell-arrays.html). The matrix is a dynamic array of contiguous memory, which can contain a number of different element types and has a convenient interface for multi-dimensional indexing. The cell array is ostensibly a dynamic array of pointers to objects, and can be used for storing elements that can't be stored contiguously, such as matrices, other cell arrays, and non-homogenous types. These two types roughly correspond to 'unboxed' and 'boxed' arrays in other languages. 
+Matlab has two primary array types, the [matrix](https://www.mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html) and the [cell array](https://www.mathworks.com/help/matlab/cell-arrays.html). The matrix is a dynamic array of contiguous memory, which can contain a number of different element types and has convenient syntax for multi-dimensional indexing and linear algebra operations. The cell array is ostensibly a dynamic array of pointers to objects, and can be used for storing elements that can't be stored contiguously, such as matrices, other cell arrays, and non-homogenous types. These two types roughly correspond to 'unboxed' and 'boxed' arrays in other languages. 
 
 ### Basic Operations
 
@@ -294,7 +294,6 @@ Part of the problem is that matlab has no real way to define abstract behaviors 
 
 >I should note that matlab has a fully featured OOP framework with abstract classes, but this is not well integrated with the basic functionality. The user can apply this framework to define their own systems of behaviors, but you're still stuck with the specific implementations of the built in types, which are not expressed anywhere in user accessible code.
 
-These problems are emblematic of a general trend of inconsistency and thoughtlessness in design that often restricts composability. The matlab programming language has no real way of talking about itself, no way within the language itself to instruct the programmer on its operation or enable them to make extensions that work consistently with the existing ecosystem. Tying behaviors and syntax to specific implementations of built in types negates much of the benefit of having a dynamic language in the first place. The oddities in its design can make grasping the important concepts difficult and the knowledge gained is rarely applicable to other programming languages. 
+These problems are emblematic of a general trend of inconsistency and thoughtlessness in design that often restricts composability. The matlab programming language has no real way of talking about itself, no way within the language to instruct the programmer on its operation or enable them to make extensions that work consistently with the existing ecosystem. Tying behaviors and syntax to specific implementations of built in types negates much of the benefit of having a dynamic language in the first place. The oddities in its design can make grasping the important concepts difficult and the knowledge gained is rarely applicable to other programming languages. 
 
 Practically, its probably best to prefer using matrices to cell arrays wherever possible, and avoid using for loops altogether. Matlab really shines when writing vectorized code that operates on the level of vectors and matrices, rather than dealing with individual elements. This is both better for performance and much more ergonomic for the programmer, but unfortunately often leads to code that is less obvious in intent and more difficult to read.
-
