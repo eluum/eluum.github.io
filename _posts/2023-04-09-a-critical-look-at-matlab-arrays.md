@@ -241,12 +241,12 @@ end
 ```MATLAB
 myCustomLogPlot(randn(100,1));
 ```
-![image plain linestyle](assets/images/plainExample.png)
+![image plain linestyle](/assets/images/plainExample.png)
 
 ```MATLAB
 myCustomLogPlot(randn(100,1), 'mo-', 'LineWidth', 2);
 ```
-![image customized linestyle](assets/images/styledExample.png)
+![image customized linestyle](/assets/images/styledExample.png)
 
 This examples uses the older, simpler syntax. In 2019b a new keyword block 'arguments' was added that lets you do even more with variable arguments.
 
@@ -261,7 +261,7 @@ plot(points{end:-1:1}, 'ro', 'LineWidth', 1.5);
 ylim([-0.1, 1.1]);
 ```
 
-![image customized linestyle](assets/images/outputExample.png)
+![image customized linestyle](/assets/images/outputExample.png)
 
 >There are a lot of tricks with comma separated lists, and various useful things you can do by converting between the three collection types. I may expand on this topic at a future time. 
 
