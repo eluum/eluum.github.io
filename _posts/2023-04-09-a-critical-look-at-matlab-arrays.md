@@ -13,7 +13,7 @@ Matlab has two primary array types, the [matrix](https://www.mathworks.com/help/
 ### Basic Operations
 
 You can create a matrix like this,
-```python
+```matlab
 numbers = [1, 2, 3, 4, 5];
 ```
 and index into it like this.
