@@ -248,7 +248,7 @@ myCustomLogPlot(randn(100,1), 'mo-', 'LineWidth', 2);
 ```
 ![image customized linestyle](/assets/images/styledExample.png)
 
-This examples uses the older, simpler syntax. In 2019b a new keyword block 'arguments' was added that lets you do even more with variable arguments.
+>This examples uses the older, simpler syntax. In 2019b a new keyword block 'arguments' was added that lets you do even more with variable arguments.
 
 Comma separated lists can also be used to capture multiple return values from a function, in this case the index and value of the maximum points in some random data. We can index the 'points' cell array backwards to input the arguments in the correct order.
 
