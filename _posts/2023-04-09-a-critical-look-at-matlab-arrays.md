@@ -199,7 +199,7 @@ b =
 
     'hello'
 ```
-Indexing multiple items with {} returns one of matlabs lesser known (and most confusing) types, the [comma separated list](https://www.mathworks.com/help/matlab/matlab_prog/comma-separated-lists.html). This data type cannot be stored in a variable, but can be directly inserted into an expression anywhere that would normally accept items separated by commas. For instance, comma separated lists can be used to create matrices. (if cell elements are different types strange conversions may occur!)
+Indexing multiple items with {} returns one of matlabs lesser known (and most confusing) types, the [comma separated list](https://www.mathworks.com/help/matlab/matlab_prog/comma-separated-lists.html). This data type cannot be stored in a variable, but can be directly inserted into an expression anywhere that would normally accept items separated by commas. For instance, comma separated lists can be used to create matrices,
 
 ```matlab
 elements = {1, 3, 5, 6, 7, 12};
@@ -210,7 +210,9 @@ mat =
 
      3     5     6
 ```
-Or, perhaps more usefully, pass arguments to functions. (Here we are adding up values by inputting a matrix and the string 'all' to specify which elements should be summed)
+>if cell elements are different types strange conversions may occur!
+
+or, perhaps more usefully, pass arguments to functions. Here we are adding up values by inputting a matrix and the string 'all' to specify which elements should be summed.
 
 ```matlab
 arguments = {[1, 2 ; 3, 4 ; 5, 6], 'all'}
@@ -290,10 +292,10 @@ Operator '+' is not supported for operands of type 'cell'.
 ```
 This difference means that in practice, using the two collection types can be counter intuitive. The problem here really boils down to the abstraction boundaries being drawn in the wrong place. The two types duplicate 90% of the functionality between them, but the remaining 10% difference is enough that you usually have to write separate code to do the same thing with each. (Examples include the built in functions arrayfun and cellfun) If matlab had a dedicated reference/pointer type, there wouldn't really be a need for a second kind of array, since you could just create a regular matrix with references as its elements. In fact, I often want to index matrices with {} to spit out the elements in a comma separated list, but currently I have to convert the matrix to a cell array first. Really there is no intrinsic link between an array of object references and being able to split the elements into a comma separated list, its just a coincidental quirk of matlab's design. Refactoring those two properties to be independent would make matlab code both more consistent and more flexible. 
 
-Part of the problem is that matlab has no real way to define abstract behaviors independent of the specific data type implementations and syntax. For instance, if () and {} corresponded to abstract interfaces with defined type signatures, it would be more obvious how they work and clearer which behaviors should be independent.
+Part of the problem is that matlab has no real way to define abstract behaviors independent of the specific implementations and syntax. If () and {} corresponded to abstract interfaces with defined type signatures, it would be more obvious how they work and clearer which behaviors should be independent.
 
->I should note that matlab has a fully featured OOP framework with abstract classes, but this is not well integrated with the basic functionality. The user can apply this framework to define their own systems of behaviors, but you're still stuck with the specific implementations of the built in types, which are not expressed anywhere in user accessible code.
+>I should note that matlab has a fully featured OOP framework with abstract classes, but this is not well integrated with the basic functionality. The user can apply this framework to define their own systems of behaviors, but you're still stuck with the specific implementations of the built in types, which are not expressed anywhere in user accessible code. Additionally the lack of type signatures for methods in matlab limits how specific you can be with abstract classes. 
 
-These problems are emblematic of a general trend of inconsistency and thoughtlessness in design that often restricts composability. The matlab programming language has no real way of talking about itself, no way within the language to instruct the programmer on its operation or enable them to make extensions that work consistently with the existing ecosystem. Tying behaviors and syntax to specific implementations of built in types negates much of the benefit of having a dynamic language in the first place. The oddities in its design can make grasping the important concepts difficult and the knowledge gained is rarely applicable to other programming languages. 
+These problems are emblematic of a general trend of inconsistency in design that often restricts composability. The matlab programming language has no real way of talking about itself, no way within the language to instruct the programmer on its operation or enable them to easily make extensions that work consistently with the existing system. The oddities in its design can make grasping the important concepts difficult and the knowledge gained is rarely applicable to other programming languages. 
 
 Practically, its probably best to prefer using matrices to cell arrays wherever possible, and avoid using for loops altogether. Matlab really shines when writing vectorized code that operates on the level of vectors and matrices, rather than dealing with individual elements. This is both better for performance and much more ergonomic for the programmer, but unfortunately often leads to code that is less obvious in intent and more difficult to read.
