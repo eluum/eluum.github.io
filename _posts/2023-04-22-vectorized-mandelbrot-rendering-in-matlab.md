@@ -15,7 +15,7 @@ $$z_0 = 0$$
 
 $$z_{n+1} = z_n^2 + c$$
 
-Images of the set can be drawn by creating a grid of numbers spanning some region of the complex plain, and iterating using the above equation, testing if the magnitude $|z_n|$ exceeds some chosen "radius" in a given number of iterations. To draw more visually interesting pictures, often the points exterior to the set are colored according to the number of iterations before they escape this radius, or some other measure of the rate of divergence. For our purposes we will use this formula to color points outside the set.
+Images of the set can be drawn by creating a grid of numbers spanning some region of the complex plain, and iterating using the above equation, testing if the magnitude $ |z_n| $ exceeds some chosen "radius" in a given number of iterations. To draw more visually interesting pictures, often the points exterior to the set are colored according to the number of iterations before they escape this radius, or some other measure of the rate of divergence. For our purposes we will use this formula to color points outside the set.
 
 $$\mu = n + 1 + \log(\log(|z_n|)/)\log(2)$$
 
