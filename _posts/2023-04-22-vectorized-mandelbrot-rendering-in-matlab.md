@@ -17,11 +17,11 @@ $$z_{n+1} = z_n^2 + c$$
 
 Images of the set can be drawn by creating a grid of numbers spanning some region of the complex plain, and iterating using the above equation, testing if the magnitude $\|z_n\|$ exceeds some chosen "radius" in a given number of iterations. To draw more visually interesting pictures, often the points exterior to the set are colored according to the number of iterations before they escape this radius, or some other measure of the rate of divergence. For our purposes we will use this formula to color points outside the set.
 
-$$\mu = n + 1 + \log(\log(|z_n|)/)\log(2)$$
+$$\mu = n + 1 - \log(\log(|z_n|)/)\log(2)$$
 
 See [here](https://linas.org/art-gallery/escape/escape.html) for a derivation and further discussion of this formula. I make the following simplifications for ease of calculation. (avoiding extra division and taking a square root)
 
-$$\mu = n + 1 + \log_2(\log(|z_n|^2)/2)$$
+$$\mu = n + 1 - \log_2(\log(|z_n|^2)/2)$$
 
 This approach has 2 major benefits. 
 
@@ -364,5 +364,3 @@ Unfortunately, this single threaded performance is still too slow to do serious 
 I've written some very efficient parallel renders in [Julia](https://julialang.org/) that can zoom in past double precision float limits and render 4k images of regions with maximum iterations limits in the tens of millions. Julia's syntax and JIT compilation handles vectorization of functions automatically, enabling a lot of performance gains with minimal effort. This compilation stage also allows writing the same code to target both the cpu (parallel and single threaded) and gpu, while MATLAB requires using different constructs (and a paywalled library) for each. Ultimately I think Julia's approach is the future of performant high level dynamic languages.
 
 Creating a more efficient Mandelbrot renderer in MATLAB has been an interesting exercise. Some of these optimizations only really make sense in this specific language, but the idea of batching iterations and limiting magnitude calculations might be more widely applicable. Applying this for each parallel execution thread could result in significant speed ups. In the future I may try to adapt this technique to my deep rendering suite in Julia.
-
-For now, heres the most expensive render I've done in Julia, which has a maximum iteration cap of 2 billion, is rendered at 4000 by 4000 resolution before down sampling to 2000 by 2000. It runs in about an hour with cpu parallelization.
