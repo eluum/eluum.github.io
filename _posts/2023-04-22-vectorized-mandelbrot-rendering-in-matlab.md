@@ -1,7 +1,8 @@
 ---
 title:  "Vectorized Mandelbrot Rendering in MATLAB"
 categories: programming matlab mandelbrot fractal
-teaser: "/assets/images/loopTest.png"
+header: 
+    teaser: "/assets/images/loopTest.png"
 ---
 ## Introduction 
 It is well known that describing calculations as linear algebra operations on vectors can result in much faster MATLAB code. Many times this is demonstrated on trivial examples that can be written as easily (or easier) in a vectorized form as they can be using loops. More complex cases often require more ingenuity and testing to make performant. Mandelbrot set rendering is a good example of an algorithm which is simple to specify as nested loops, but difficult to vectorize.
